@@ -1,0 +1,54 @@
+<h1 class="page-title">Sing In</h1>
+<div class="form-wrapper" (ngSubmit)="authUser()">
+  <!-- /.page-title -->
+  <form
+    class="form-group"
+    [formGroup]="loginForm"
+  >
+    <div class="input-group mb-3">
+      <input id="username"
+             class="form-control"
+             type="text"
+             formControlName="username"
+             placeholder="Enter your username"
+             autocomplete="off"
+      >
+    </div>
+    <div class="input-group mb-3">
+      <input
+        id="password"
+        class="form-control"
+        type="password"
+        formControlName="password"
+        placeholder="Enter your password"
+        autocomplete="off"
+      >
+    </div>
+    <div class="input-group input-group__buttons mb-3">
+      <button
+        id="login-button"
+        class="btn btn-primary"
+        (click)="authUser()"
+      >Login
+      </button>
+      <button
+        id="logout-button"
+        class="btn btn-primary btn__center"
+        (click)="authService.logOut()"
+      >SingUp
+      </button>
+      <button
+        class="btn btn-primary"
+        (click)="authService.logInAuthGoogle()"
+      >Login with socials
+      </button>
+
+      <!--<a class="ui item" class="btn btn-primary" href="http://localhost:5000/auth/google">-->
+        <!--Login with Google-->
+      <!--</a>-->
+    </div>
+  </form>
+
+</div>
+<!-- /.input-wrapper -->
+

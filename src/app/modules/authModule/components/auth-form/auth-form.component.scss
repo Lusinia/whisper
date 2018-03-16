@@ -1,0 +1,27 @@
+@import "../../../../constants/colors";
+
+.item {
+  color: darkslateblue;
+  font-size: 20px;
+}
+
+.form-group {
+  margin: 0.5rem;
+}
+.input-group {
+  justify-content: space-between;
+  padding:  0.3rem 0;
+  .btn {
+    flex: 1;
+    flex-basis: 100px;
+    &.btn__center {
+      margin: 0 1rem;
+    }
+  }
+}
+
+.page-title {
+  color: $ROYAL_BLUE;
+  text-align: center;
+  padding:  1rem 0;
+}

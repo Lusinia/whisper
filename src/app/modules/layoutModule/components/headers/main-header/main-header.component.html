@@ -1,0 +1,24 @@
+<div class="ui segment">
+  <div class="container">
+    <div class="ui secondary menu">
+      <a class="item">
+        Boogy-style-forum
+      </a>
+      <div class=" menu">
+        <ul class="nav">
+          <li class="nav-item active">
+            <a class="nav-link item" routerLink="/landing">Home <span class="sr-only"></span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link item" routerLink="/signin">SignIn</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link item" (click)="authService.logOut()">Log Out</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /.ui -->
+<!--(click)="logInGoogle()"-->

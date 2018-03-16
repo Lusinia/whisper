@@ -1,0 +1,10 @@
+{
+  "/auth/google": {
+    "target": "http://localhost:6000",
+    "secure": false
+  },
+  "/api/*": {
+    "target": "http://localhost:6000"
+  }
+}
+
