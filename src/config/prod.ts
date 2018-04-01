@@ -10,5 +10,10 @@ export const keys = {
     facebookRedirectUri: ' https://git.heroku.com/boogy-blog.git/auth-service/facebook/callback',
     // facebookRedirectUri: 'https://desolate-reaches-72653.herokuapp.com/auth/facebook/callback',
     mongoURI: process.env['MONGO_URI'],
-    cookieKey:  process.env['COOKIE_KEY']
+    cookieKey:  process.env['COOKIE_KEY'],
+    tokenLife : 3600,
+    cloudinaryName: 'dryurfzs6',
+    cloudinaryAPIKey: 833837335482648,
+    cloudinaryAPISecret: 'p12vxdKvvtWOVmD61yhHu3-FjXo',
+    cloudinaryEnv: '//833837335482648:p12vxdKvvtWOVmD61yhHu3-FjXo@dryurfzs6/'
 };
