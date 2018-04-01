@@ -2,19 +2,19 @@
 <div class="form-wrapper" (ngSubmit)="authUser()">
   <!-- /.page-title -->
   <form
-    class="form-group"
+    class="form-group mb-5"
     [formGroup]="loginForm"
   >
-    <div class="input-group mb-3">
-      <input id="username"
+    <div class="input-group ">
+      <input id="email"
              class="form-control"
              type="text"
-             formControlName="username"
+             formControlName="email"
              placeholder="Enter your username"
              autocomplete="off"
       >
     </div>
-    <div class="input-group mb-3">
+    <div class="input-group">
       <input
         id="password"
         class="form-control"
@@ -24,7 +24,7 @@
         autocomplete="off"
       >
     </div>
-    <div class="input-group input-group__buttons mb-3">
+    <div class="input-group input-group__buttons">
       <button
         id="login-button"
         class="btn btn-primary"
@@ -32,23 +32,13 @@
       >Login
       </button>
       <button
-        id="logout-button"
-        class="btn btn-primary btn__center"
-        (click)="authService.logOut()"
-      >SingUp
-      </button>
-      <button
         class="btn btn-primary"
         (click)="authService.logInAuthGoogle()"
       >Login with socials
       </button>
-
-      <!--<a class="ui item" class="btn btn-primary" href="http://localhost:5000/auth/google">-->
-        <!--Login with Google-->
-      <!--</a>-->
     </div>
   </form>
-
 </div>
+<p> {{authService.user.login | async}}</p>
 <!-- /.input-wrapper -->
 

@@ -1,0 +1,21 @@
+<div class="chat-room">
+  <div class="chat-room-messages">
+    <div
+      [ngClass]="{'message-wrapper': true, 'reverse': index % 3 === 0}"
+      *ngFor="let message of messages; let index = index;"
+    >
+      <div class="avatar-wrapper">
+        <img src="https://resources.stuff.co.nz/content/dam/images/1/i/o/a/a/c/image.related.StuffLandscapeSixteenByNine.620x349.1ioalf.png/1492902717643.jpg" alt="avatar" class="avatar">
+      </div>
+      <!-- /.avatar-wrapper -->
+
+      <div [ngClass]="{'message-text': true, 'float-right': index % 3 === 0}">{{message}}</div>
+      <!-- /.message-text -->
+    </div>
+    <!-- /.message-wrapper -->
+  </div>
+  <!-- /.chat-room-messages -->
+  <app-chat-message></app-chat-message>
+</div>
+<!-- /.chat-room -->
+

@@ -12,17 +12,10 @@
 .input-group {
   justify-content: space-between;
   padding: 0.3rem 0;
-  &__buttons {
-    margin-top: 1rem;
     .btn {
       flex: 1;
       flex-basis: 100px;
     }
-    #login-button {
-      margin-right: 2rem;
-    }
-  }
-
 }
 
 .page-title {

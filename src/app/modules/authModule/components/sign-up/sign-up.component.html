@@ -1,0 +1,60 @@
+<h1 class="page-title">Sign Up</h1>
+<div class="form-wrapper" (ngSubmit)="signUpUser()">
+  <!-- /.page-title -->
+  <form
+    class="form-group mb-5"
+    [formGroup]="signUpForm"
+  >
+    <div class="input-group ">
+      <input id="email"
+             class="form-control"
+             type="text"
+             formControlName="email"
+             placeholder="Enter your email"
+             autocomplete="off"
+      >
+    </div>
+    <div class="input-group">
+      <input
+        id="username"
+        class="form-control"
+        type="text"
+        formControlName="username"
+        placeholder="Enter your username"
+        autocomplete="off"
+      >
+    </div>
+    <div class="input-group">
+      <input
+        id="password"
+        class="form-control"
+        type="password"
+        formControlName="password"
+        placeholder="Enter your password"
+        autocomplete="off"
+      >
+    </div>
+
+    <div class="input-group">
+      <input
+        (change)="upload($event)"
+        id="imageURL"
+        class="form-control"
+        type="file"
+        autocomplete="off"
+        #fileInput
+      >
+    </div>
+
+    <div class="input-group input-group__buttons">
+      <button
+        id="reg-button"
+        class="btn btn-primary"
+        (click)="signUpUser()"
+      >SignUp
+      </button>
+    </div>
+  </form>
+</div>
+<!-- /.input-wrapper -->
+

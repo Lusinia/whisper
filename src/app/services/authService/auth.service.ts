@@ -1,37 +1,94 @@
-import { Http, Response } from '@angular/http';
+import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/share';
+import 'rxjs/add/operator/do';
 import { Observable } from 'rxjs/Observable';
-import { Router } from "@angular/router";
 import { SERVER_URL } from "../../constants";
+import { Subject } from 'rxjs/Subject';
+import { UserParams } from '../../models/user';
+import { AuthParams } from '../../models/authParams';
 
 @Injectable()
 export class AuthService {
 
+  user: Subject<UserParams> = new Subject();
   private userDetails = null;
 
-  constructor(private http: Http,
-             private router: Router) {
-    }
+  constructor(private http: HttpClient) {
+    this.user.next({id: '213123sdfsdf'})
+  }
 
   logInAuthGoogle(): Observable<any> {
-    return this.http.get(`${SERVER_URL}/auth/google`)
+    const url = `${SERVER_URL}/auth/google`;
+    return this.http.get(url)
+      .map((res: HttpResponse<any>) => {
+        return res.body
+      })
+  }
+
+  getToken(): string {
+    return localStorage.getItem('token');
+  }
+
+  setToken(token: string): void {
+    localStorage.setItem('token', token);
+  }
+
+  // logInAuthBarear(): Observable<any> {
+  //   return this.http.get(`${SERVER_URL}/profile`)
+  //     .map((res: Response) => {
+  //         return res.json();
+  //     })
+  // }
+  loginToken(params: AuthParams) {
+    const url = `${SERVER_URL}/auth/token`;
+    return this.http.post(url, params)
+      .map((res: HttpResponse<any>) => {
+        return res['token']
+      })
+  }
+
+  logIn(): Observable<any> {
+    return this.http.get(`${SERVER_URL}/auth/login`)
+  }
+
+  registerUser(params: AuthParams) {
+    return this.http.post(`${SERVER_URL}/auth/register`, params)
+      .map((res: HttpResponse<any>) => {
+        return res['token']
+      })
+  }
+
+  // deleteUserAvatar()
+  updateUser(params) {
+    const headers = new HttpHeaders();
+    headers.delete("Content-Type");
+    headers.set("Content-Type", "multipart/form-data");
+    console.log('headers', headers);
+    return this.http.post(`${SERVER_URL}/auth/upload`, params, {headers})
+  }
+
+  getUserToken() {
+    return this.http.get(`${SERVER_URL}/auth/token`)
       .map((res: Response) => {
-        console.log('res.json()', res.json());
         return res.json();
       })
   }
 
   checkLoggedIn(): Observable<Response> {
-    return this.http.get(`${SERVER_URL}/api/current_user`)
-      .map((res: Response) => res.json())
+    return this.http.get(`${SERVER_URL}/auth/current_user`)
+      .map((res: HttpResponse<any>) => {
+        return res.body
+      })
   }
-  isLoggedIn() { //checkLoggedIn
-    return this.userDetails !== null;
+
+  isLoggedIn() {
+    return localStorage.getItem('token');
   }
+
+
   logOut() {
-    return this.http.get(`${SERVER_URL}/api/logout`)
-      .map((res: Response) => res.json())
+    localStorage.removeItem('token');
   }
 }

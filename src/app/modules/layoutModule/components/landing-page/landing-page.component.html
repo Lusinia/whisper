@@ -1,12 +1,5 @@
 <div class="ui grid">
   <div class="column">
-    <!--<div class="container">-->
-    <!--</div>-->
-      <app-listen *ngIf="speech.speechSupported"></app-listen>
-    <!--<app-chat></app-chat>-->
-    <button (click)="getProducts()">GET!!!</button>
-      <!-- /.container -->
+    <ng-content></ng-content>
   </div>
-  <!-- /.column -->
 </div>
-<!-- /.wrapper -->

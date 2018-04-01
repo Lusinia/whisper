@@ -1,0 +1,33 @@
+<div class="chat-wrapper">
+  <div class="rooms-list-wrapper">
+    <div class="rooms-list">
+          <div
+            class="room"
+            *ngFor="let room of rooms"
+          >
+            <div class="avatar-wrapper">
+              <img [src]="room.userAvatar" alt="avatar" class="avatar">
+              <!-- /.avatar -->
+            </div>
+            <p>{{room.name}}</p>
+            <!-- /.avatar-wrapper -->
+          </div>
+        <div
+            class="room"
+           >
+            <div class="avatar-wrapper">
+              <!--<img [src]="authService.user.imageURL || 'https://resources.stuff.co.nz/content/dam/images/1/i/o/a/a/c/image.related.StuffLandscapeSixteenByNine.620x349.1ioalf.png/1492902717643.jpg'" alt="avatar" class="avatar">-->
+              <!-- /.avatar -->
+              <p>{{authService.user.username}}</p>
+            </div>
+            <p>{{room.name}}</p>
+            <!-- /.avatar-wrapper -->
+          </div>
+          <!-- /.room -->
+    </div>
+    <!-- /.rooms-list -->
+  </div>
+  <app-chat-room [messages]="messages"></app-chat-room>
+  <!-- /.rooms-list-wrapper -->
+</div>
+<!-- /.chat-wrapper -->

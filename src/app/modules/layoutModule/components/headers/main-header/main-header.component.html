@@ -1,23 +1,28 @@
-<div class="ui segment">
+<div class="header">
   <div class="container">
-    <div class="ui secondary menu">
-      <a class="item">
-        Boogy-style-forum
-      </a>
-      <div class=" menu">
-        <ul class="nav">
+    <nav class="navbar justify-content-between">
+      <a class="navbar-brand">Boogy-style-forum</a>
+        <ul class="nav justify-content-end">
           <li class="nav-item active">
             <a class="nav-link item" routerLink="/landing">Home <span class="sr-only"></span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link item" routerLink="/chat">Chat</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link item" routerLink="/listen">Listen game</a>
           </li>
           <li class="nav-item">
             <a class="nav-link item" routerLink="/signin">SignIn</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link item" (click)="authService.logOut()">Log Out</a>
+            <a class="nav-link item" routerLink="/signup">SignUp</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link item" routerLink="/landing" (click)="authService.logOut()">Log Out</a>
           </li>
         </ul>
-      </div>
-    </div>
+    </nav>
   </div>
 </div>
 <!-- /.ui -->

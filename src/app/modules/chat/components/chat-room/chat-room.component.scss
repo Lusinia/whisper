@@ -1,0 +1,52 @@
+@import "../../../../constants/colors";
+
+.chat-room {
+  width: 100%;
+  height: 90vh;
+  overflow: hidden;
+  background: url(../../../../../assets/backgrounds/chat_grey.png) center center no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  .chat-room-messages {
+    flex: 1;
+    .message-wrapper {
+      display: flex;
+      align-items: center;
+      flex-wrap: nowrap;
+      white-space: normal;
+      padding-bottom: 0.4rem;
+      .message-text {
+        font-size: 1.2rem;
+        padding: 0.7rem 1.7rem;
+        overflow: hidden;
+        border-radius: 0.5rem;
+        margin-left: 1rem;
+        margin-right: 1rem;
+        background: $LIGHT_GREEN;
+        color: $BLACK;
+        box-shadow: 2px 2px 3px;
+      }
+      .float-right {
+        background: $MISTY_ROSE;
+        color: $DARK_SLATE_BLUE;
+      }
+      .avatar-wrapper {
+        width: 6vw;
+        height: 6vw;
+        min-width: 6vw;
+        border: 2px solid $LIGHT_CYAN;
+        overflow: hidden;
+        border-radius: 25%;
+        img.avatar {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+  }
+  .reverse {
+    flex-direction: row-reverse;
+  }
+}
